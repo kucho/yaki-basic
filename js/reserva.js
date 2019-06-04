@@ -296,7 +296,7 @@ function borrar_reserva(id_full) {
 	const estado = document.getElementById(`agenda-${mesa}--estado-${hora}`)
 
 	/* Borramos solo si hay reserva activa */
-	if (estado.parentElement.getAttribute("class") == "ocupado-bg") {
+	if (estado.parentElement.classList.contains("ocupado-bg")) {
 
 		/* Limpiamos todos los datos de tu nuestra reserva, almacenados en el elemento personalizando "cliente" */
 		cliente.setAttribute("codigo", "")
