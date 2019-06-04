@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Yakitori - Home</title>
+		<meta name="description" content="Proyecto de Programación">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./css/style.css">
+	</head>
+	<style>
+		body {
+			background-color: #1E2019;
+		}
+	</style>
+
+	<body>
+
+		<div class="login-page">
+			<div class="form">
+				<div id="imogaplogo"><img height="45" src="./img/logo.jpg"></div>
+				<form id="login-form" onsubmit="validar()" method="post">
+					<input id="user" type="text" name="login" placeholder="Usuario" />
+					<input id="pass" type="password" name="password" placeholder="Contraseña" />
+					<input type="submit" class="btn-login">
+					<p class="message">Usuario: demo || Password: 1234</p>
+				</form>
+			</div>
+		</div>
+
+		<script src="./js/login.js" async defer></script>
+	</body>
+
+</html>
