@@ -8,6 +8,7 @@
 		<meta name="description" content="Manejo de reservas">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/reserva.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
 			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 	</head>
@@ -26,7 +27,6 @@
 						<li class="navigation__item"><a href="./reserva.html" class="is-active">Reservas</a></li>
 						<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
 						<li class="navigation__item"><a href="#">Soporte</a></li>
-
 					</ul>
 				</nav>
 			</div>
@@ -53,7 +53,7 @@
 						<span><b>Acciones (mesas):</b></span><br>
 						<i class="fa fa-plus-circle fa-2x green" title="Crear mesa" onClick="agregar_mesa()"></i>
 						<i class="fa fa-minus-circle fa-2x red" title="Eliminar mesa" onClick="quitar_mesa()"></i>
-						<i class="fab fa-gg-circle fa-2x orange" title="Combinar mesas" onClick="combinar_mesas()"></i>
+						<i class="fab fa-gg-circle fa-2x blue" title="Combinar mesas" onClick="combinar_mesas()"></i>
 
 					</p>
 				</div>
@@ -98,7 +98,9 @@
 										</div>
 										<div class="inputs column">
 											<select name="cantidad" disabled>
-												<option value="" disabled selected hidden>Selecciona...</option>
+												<option value="" disabled selected hidden>
+													Selecciona...
+												</option>
 												<option value="1">Mesa para 1</option>
 												<option value="2">Mesa para 2</option>
 												<option value="3">Mesa para 3</option>
@@ -110,8 +112,9 @@
 									</div>
 									<div class="btn-reserva row">
 										<div id="btn-detalle-reserva">
-											<button type="button" class="rojo" onClick="limpiar_form()">Limpiar</button>
-											<button type="button" class="verde"
+											<button type="button" class="green"
+												onClick="limpiar_form()">Limpiar</button>
+											<button type="button" class="red"
 												onClick="guardar_reserva()">Guardar</button>
 										</div>
 									</div>
@@ -132,7 +135,8 @@
 										detalles.</span>
 									<ul id="data-info-mesa" style="display:none;">
 										<li>Número de mesa: <span id="n-mesa"></span></li>
-										<li>Capacidad: <span id="capacidad"></span></li>
+										<li>Capacidad: <span id="capacidad"></span>
+										</li>
 									</ul>
 								</p>
 							</div>

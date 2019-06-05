@@ -1,4 +1,42 @@
 /**
+ *Agrega una orden a una reserva
+ */
+function orden_reserva(id_full) {
+
+	/* Descomponemos el id compuesto a mesa y hora */
+	let detalles = idAgenda_a_detalles(id_full)
+	let mesa = detalles[0]
+	let hora = detalles[1]
+
+	/* Verificamos que haya un cliente registrado en la reserva */
+	let cliente = document.getElementById(`cliente-${mesa}-${hora}`)
+	/* Para ello, verificamos si tiene al menos un campo activo. Podría ser cualquiera */
+	if (cliente.getAttribute("codigo") == "") {
+		alert("No se encontró una reserva activa para ordenar. Verifique y vuelva a intentarlo.")
+		return false
+	}
+
+	/* Extraemos los valores del cliente para fácil manipulación */
+	let codigo = cliente.getAttribute("codigo")
+	let nombre = cliente.getAttribute("nombre")
+	let cantidad = cliente.getAttribute("cantidad")
+
+	/* Abrimos la página de orden */
+	let opened = window.open("./orden.html")
+
+	opened.addEventListener('load', (function () {
+		opened.document.getElementById("info-mesa").innerText = mesa
+		opened.document.getElementById("info-reserva").innerText = codigo
+		opened.document.getElementById("info-cliente").innerText = nombre
+		opened.document.getElementById("info-cantidad").innerText = cantidad
+	}), true)
+
+}
+
+
+
+
+/**
  *Agrega una mesa al salón principal
  */
 function agregar_mesa() {
@@ -186,18 +224,25 @@ function crear_agenda() {
 		let botones_fila = document.createElement("th")
 		botones_fila.setAttribute("class", "edit-buttons")
 
+		let btn_orden = document.createElement("button")
+		btn_orden.classList.add("blue")
+		btn_orden.setAttribute("type", "button")
+		btn_orden.setAttribute("onClick", `orden_reserva('${id_agenda_estado}')`)
+		btn_orden.innerText = "Orden"
+
 		let btn_editar = document.createElement("button")
-		btn_editar.classList.add("verde")
+		btn_editar.classList.add("green")
 		btn_editar.setAttribute("type", "button")
 		btn_editar.setAttribute("onClick", `editar_reserva('${id_agenda_estado}')`)
 		btn_editar.innerText = "Editar"
 
 		let btn_borrar = document.createElement("button")
-		btn_borrar.classList.add("rojo")
+		btn_borrar.classList.add("red")
 		btn_borrar.setAttribute("type", "button")
 		btn_borrar.setAttribute("onClick", `borrar_reserva('${id_agenda_estado}')`)
 		btn_borrar.innerText = "Borrar"
 
+		botones_fila.appendChild(btn_orden)
 		botones_fila.appendChild(btn_editar)
 		botones_fila.appendChild(btn_borrar)
 

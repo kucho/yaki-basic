@@ -1,0 +1,280 @@
+.form {
+        background: #FFFFFF;
+        max-width: 360px;
+        margin: 0 auto 100px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+        outline: 0;
+        background: #f2f2f2;
+        width: 100%;
+        border: solid 2px #c9c9c9;
+        transition: border 0.3s;
+        margin: 0 0 15px;
+        padding: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+}
+
+
+.cont-izq {
+        /*background-color:blue;*/
+        background-color: #fefefe;
+        width: 30%;
+        height: 100%;
+}
+
+.cont-der {
+        background-color: red;
+        width: 70%;
+        height: 100%;
+        justify-content: flex-start;
+}
+
+.cont-der-arriba {
+        background-color: #fefefe;
+        height: 60%;
+        width: 100%;
+}
+
+.cont-der-medio {
+        background-color: #fefefe;
+        height: 10%;
+        width: 100%;
+}
+
+
+.cont-der-abajo {
+        background-color: #fefefe;
+        height: 30%;
+        width: 100%;
+        padding-top: 50px;
+}
+
+.cont-der-detalle-izq {
+        height: 100%;
+        width: 60%;
+        background-color: #fefefe;
+}
+
+.cont-der-detalle-der {
+        height: 100%;
+        width: 40%;
+        background-color: #fefefe;
+}
+
+.agenda-detalle {
+        text-align: center;
+        padding: 20px;
+}
+
+table.table {
+        border-collapse: collapse;
+        margin: 0 auto;
+        width: 90%;
+        text-align: center;
+        line-height: 2.3em;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr {
+        background-color: #ed6a5a;
+        color: #ffffff;
+        font-weight: bold;
+}
+
+.table th,
+.table td {
+        padding: 12px 15px;
+}
+
+.table tbody tr {
+        background-color: #98f8b429;
+        line-height: 2em;
+        border-bottom: 1px solid #dddddd;
+}
+
+.table tbody tr:hover {
+        background-color: rgba(50, 100, 209, 0.28) !important;
+}
+
+.table tbody th {
+        font-weight: normal;
+}
+
+.libre-fuente {
+        color: #afafaf
+}
+
+.fila-seleccionada {
+        border: 2px solid rgba(0, 20, 49, 0.39) !important;
+        background-color: rgba(50, 100, 209, 0.28) !important;
+}
+
+.ocupado-fuente {
+        font-weight: bold !important;
+}
+
+.ocupado-bg {
+        background-color: #f898ab29 !important;
+}
+
+.table tbody tr:last-of-type {
+        border-bottom: 2px solid #ed6a5a;
+}
+
+td.edit-buttons {
+        text-align: right;
+}
+
+button {
+        border-radius: 3px;
+        border: none;
+        margin: 0 0.25em;
+        transition: all 0.3s;
+        padding: 2px 5px;
+}
+
+button:hover {
+        box-shadow: 0 0 4px rgba(3, 3, 3, 0.8);
+        opacity: 0.9;
+}
+
+@media screen and (max-width: 800px) {
+        tr {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                margin: 0.5em 0;
+                border: 1px solid rgba(3, 3, 3, 0.2);
+        }
+
+        td,
+        th {
+                flex: 1 1 150px;
+                border: 0.5px solid rgba(3, 3, 3, 0.2);
+        }
+}
+
+.salon-titulo {
+        height: 10%;
+        width: 100%;
+}
+
+.mesa {
+        display: table;
+        text-align: center;
+        color: #fefefe;
+        background-color: #563232;
+        width: 160px;
+        height: 160px;
+        margin: 30px;
+        border-radius: 80px;
+
+}
+
+.mesa span {
+        display: table-cell;
+        vertical-align: middle;
+}
+
+.seleccionado {
+        background-color: rgba(50, 100, 209, 0.8);
+}
+
+.color-inactivo {
+        background-color: #eaeaea !important;
+        color: #939292 !important;
+}
+
+.box {
+        background-color: #ffffff;
+        border-radius: 3px;
+        border-top: 2px solid #c1c1c1;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-top-color: #f56954;
+        width: 50%;
+        margin: 0 auto;
+}
+
+.box .box-body {
+        max-height: 300px;
+        overflow: auto;
+        padding: 10px;
+}
+
+.box .box-title {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0;
+        padding: 10px;
+        text-align: center;
+}
+
+.box .box-header {
+        background-color: #f56954;
+        color: #fff;
+        margin-top: 0;
+}
+
+input,
+select {
+        width: 100%;
+}
+
+.labels {
+        width: 20%;
+}
+
+.inputs {
+        width: 80%;
+}
+
+.btn-reserva {
+        justify-content: flex-end;
+}
+
+.red {
+        color: #ffffff;
+        background-color: #ed6a5a;
+        cursor: pointer;
+}
+
+.green {
+        color: #ffffff;
+        background-color: #69995D;
+        cursor: pointer;
+}
+
+.blue {
+        color: #ffffff;
+        background-color: rgb(93, 131, 153);
+        cursor: pointer;
+}
+
+#botones-mesa .red {
+        color: #ed6a5a;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+#botones-mesa .green {
+        color: #69995D;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+#botones-mesa .blue {
+        color: rgb(93, 131, 153);
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0);
+}
+
+#btn-detalle-reserva {
+        text-align: right;
+}

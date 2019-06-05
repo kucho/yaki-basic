@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Order System</title>
+		<link rel="stylesheet" href="./css/style.css">
+		<link rel="stylesheet" href="./css/orden.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<header class="header sticky sticky--top js-header">
+			<div class="grid">
+				<div class="header__logo">
+					<a href="./reserva.html">
+						<img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
+					</a>
+				</div>
+				<nav class="navigation">
+					<ul class="navigation__list navigation__list--inline">
+						<li class="navigation__item"><a href="./reserva.html">Reservas</a></li>
+						<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
+						<li class="navigation__item"><a href="#">Soporte</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<div id="app" class="container row">
+			<div id="info" class="row upper-info">
+				<ul>
+					<li>Mesa: #<span id="info-mesa"></span></li>
+					<li>Cód. Reserva: <span id="info-reserva"></span></li>
+					<li>Cliente: <span id="info-cliente"></span></li>
+					<li>Cantidad: <span id="info-cantidad"></span></li>
+				</ul>
+			</div>
+			<div id="main" class="row">
+				<div id="categories" class="cont-izq">
+					<div class="title row">
+						<h3>Paso 1. Selecciona la categoría</h3>
+					</div>
+					<div id="catlist-1" class="row">
+
+						<div class="mouse">
+							<span></span>
+						</div>
+
+						<div class="cat-list column">
+							<div cat-name="entrada" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/701/701974.svg" />
+								<h4>Entradas</h4>
+							</div>
+							<div cat-name="sashimi" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/12/12876.svg" />
+								<h4>Sashimi</h4>
+							</div>
+							<div cat-name="nigiri" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/641/641903.svg" />
+								<h4>Nigiri</h4>
+							</div>
+							<div cat-name="maki" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/1691/1691132.svg" />
+								<h4>Maki</h4>
+							</div>
+							<div cat-name="arroz" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/1694/1694441.svg" />
+								<h4>Arroz</h4>
+							</div>
+							<div cat-name="tallarin" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/1046/1046893.svg" />
+								<h4>Tallarines</h4>
+							</div>
+							<div cat-name="set" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/113/113358.svg" />
+								<h4>Sets</h4>
+							</div>
+							<div cat-name="sopa" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/1046/1046893.svg" />
+								<h4>Sopas</h4>
+							</div>
+							<div cat-name="bebidas" class="cat-item">
+								<img src="https://image.flaticon.com/icons/svg/633/633652.svg" />
+								<h4>Bebidas</h4>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div id="dishes" class="cont-cen">
+					<div class="title row">
+						<h3>Paso 2. Selecciona el plato</h3>
+					</div>
+					<div class="disheslist row"></div>
+				</div>
+
+				<div id="cart" class="cont-der">
+					<div class="title row">
+						<h3>Paso 3. Gestiona los pedidos</h3>
+					</div>
+					<div class="cartlist row"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="./js/header.js" async defer></script>
+		<script src="./js/orden.js" async defer></script>
+	</body>
+
+</html>
