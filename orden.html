@@ -9,7 +9,8 @@
 		<link rel="stylesheet" href="./css/style.css">
 		<link rel="stylesheet" href="./css/orden.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+			crossorigin="anonymous">
 	</head>
 
 	<body>
@@ -45,47 +46,70 @@
 					<div class="title row">
 						<h3>Paso 1. Selecciona la categoría</h3>
 					</div>
-					<div id="catlist-1" class="row">
+					<div class="row">
 
 						<div class="mouse">
 							<span></span>
 						</div>
 
 						<div class="cat-list column">
-							<div cat-name="entrada" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/701/701974.svg" />
+							<div cat-name="todo" class="cat-item"
+								onClick="filtrarSeleccion('todo')">
+								<img
+									src="https://image.flaticon.com/icons/svg/13/13166.svg" />
+								<h4>Mostrar todo</h4>
+							</div>
+							<div cat-name="entrada" class="cat-item"
+								onClick="filtrarSeleccion('entrada')">
+								<img
+									src="https://image.flaticon.com/icons/svg/701/701974.svg" />
 								<h4>Entradas</h4>
 							</div>
-							<div cat-name="sashimi" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/12/12876.svg" />
+							<div cat-name="sashimi" class="cat-item"
+								onClick="filtrarSeleccion('sashimi')">
+								<img src="https://i.imgur.com/HxjwfYm.png" />
 								<h4>Sashimi</h4>
 							</div>
-							<div cat-name="nigiri" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/641/641903.svg" />
+							<div cat-name="nigiri" class="cat-item"
+								onClick="filtrarSeleccion('nigiri')">
+								<img
+									src="https://image.flaticon.com/icons/svg/641/641903.svg" />
 								<h4>Nigiri</h4>
 							</div>
-							<div cat-name="maki" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/1691/1691132.svg" />
+							<div cat-name="maki" class="cat-item"
+								onClick="filtrarSeleccion('maki')">
+								<img
+									src="https://image.flaticon.com/icons/svg/1691/1691132.svg" />
 								<h4>Maki</h4>
 							</div>
-							<div cat-name="arroz" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/1694/1694441.svg" />
+							<div cat-name="arroz" class="cat-item"
+								onClick="filtrarSeleccion('arroz')">
+								<img
+									src="https://image.flaticon.com/icons/svg/1694/1694441.svg" />
 								<h4>Arroz</h4>
 							</div>
-							<div cat-name="tallarin" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/1046/1046893.svg" />
+							<div cat-name="tallarin" class="cat-item"
+								onClick="filtrarSeleccion('tallarin')">
+								<img
+									src="https://image.flaticon.com/icons/svg/1046/1046893.svg" />
 								<h4>Tallarines</h4>
 							</div>
-							<div cat-name="set" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/113/113358.svg" />
+							<div cat-name="set" class="cat-item"
+								onClick="filtrarSeleccion('set')">
+								<img
+									src="https://image.flaticon.com/icons/svg/113/113358.svg" />
 								<h4>Sets</h4>
 							</div>
-							<div cat-name="sopa" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/1046/1046893.svg" />
+							<div cat-name="sopa" class="cat-item"
+								onClick="filtrarSeleccion('sopa')">
+								<img
+									src="https://image.flaticon.com/icons/svg/1046/1046893.svg" />
 								<h4>Sopas</h4>
 							</div>
-							<div cat-name="bebidas" class="cat-item">
-								<img src="https://image.flaticon.com/icons/svg/633/633652.svg" />
+							<div cat-name="bebida" class="cat-item"
+								onClick="filtrarSeleccion('bebida')">
+								<img
+									src="https://image.flaticon.com/icons/svg/633/633652.svg" />
 								<h4>Bebidas</h4>
 							</div>
 
@@ -94,9 +118,381 @@
 				</div>
 				<div id="dishes" class="cont-cen">
 					<div class="title row">
-						<h3>Paso 2. Selecciona el plato</h3>
+						<h3>Paso 2. Selecciona los platos</h3>
 					</div>
-					<div class="disheslist row"></div>
+					<div class="dish-list row">
+						<!-- Plato 1 -->
+						<div cat-name="entrada" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5488-400x400/ensalada-de-calamar.png" />
+							</div>
+							<div class="body">
+								<div id="dish-1" class="dish-name">Ensalada de Calamar
+								</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-1">16.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 2 -->
+
+						<div cat-name="entrada" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5475-200x200/ensalada-de-algas.png" />
+							</div>
+							<div class="body">
+								<div id="dish-2" class="dish-name">Ensalada de Algas
+								</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-2">16.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 3 -->
+						<div cat-name="entrada" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6825-200x200/ensalada-de-zanahorias-con-sal.png" />
+							</div>
+							<div class="body">
+								<div id="dish-3" class="dish-name">Ensalada de
+									Zanahorias</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-3">15.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 4 -->
+						<div cat-name="entrada" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6793-200x200/ceviche-de-dorada-a-leche-mang.png" />
+							</div>
+							<div class="body">
+								<div id="dish-4" class="dish-name">Ceviche de dorada y
+									leche de mango</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-4">22.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 5 -->
+						<div cat-name="sashimi" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6059-200x200/sashimi-salmon-5-piezas.png" />
+							</div>
+							<div class="body">
+								<div id="dish-5" class="dish-name">Sashimi Salmón 5
+									piezas</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-5">20.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 6 -->
+						<div cat-name="nigiri" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5425-200x200/nigiri-salmon.png" />
+							</div>
+							<div class="body">
+								<div id="dish-6 class=" dish-name">Nigiri Salmón</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-6">13.50</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 7 -->
+						<div cat-name="nigiri" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5435-200x200/nigiri-atun.png" />
+							</div>
+							<div class="body">
+								<div id="dish-7" class="dish-name">Nigiri Atún</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-7">13.50</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 8 -->
+						<div cat-name="nigiri" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5464-200x200/nigiri-huevas-de-salmon.png" />
+							</div>
+							<div class="body">
+								<div id="dish-8" class="dish-name">Nigiri Huevas de
+									Salmón</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-8">17.50</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 9 -->
+						<div cat-name="nigiri" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5444-200x200/nigiri-black-pepper.png" />
+							</div>
+							<div class="body">
+								<div id="dish-9" class="dish-name">Nigiri Black Pepper
+								</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-9">15.50</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 10 -->
+						<div cat-name="maki" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5447-200x200/aguacate.png" />
+							</div>
+							<div class="body">
+								<div id="dish-10" class="dish-name">Maki Aguacate</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-10">18.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 11 -->
+						<div cat-name="maki" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6813-200x200/atun-picante.png" />
+							</div>
+							<div class="body">
+								<div id="dish-11" class="dish-name">Maki Atún Picante
+								</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-11">23.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 12 -->
+						<div cat-name="maki" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6029-200x200/cangrejo.png" />
+							</div>
+							<div class="body">
+								<div id="dish-12" class="dish-name">Maki Cangrejo</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-12">27.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 13 -->
+						<div cat-name="arroz" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5461-200x200/arroz-blanco.png" />
+							</div>
+							<div class="body">
+								<div id="dish-13" class="dish-name">Arrow Blanco</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-13">11.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 14 -->
+						<div cat-name="arroz" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5462-200x200/arroz-avinagrado.png" />
+							</div>
+							<div class="body">
+								<div id="dish-14" class="dish-name">Arrow Avinagrado
+								</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-14">12.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 15 -->
+						<div cat-name="tallarin" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.narusushi.es/wp-content/uploads/entrantes-yakisoba.png" />
+							</div>
+							<div class="body">
+								<div id="dish-15" class="dish-name">Yakisoba</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-15">25.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 16 -->
+						<div cat-name="set" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6921-400x400/box-for-two.png" />
+							</div>
+							<div class="body">
+								<div id="dish-16" class="dish-name">Set para 2</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-16">120.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 17 -->
+						<div cat-name="set" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-7085-200x200/happy-sushi-box.png" />
+							</div>
+							<div class="body">
+								<div id="dish-17" class="dish-name">Happy Set</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-17">80.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 18 -->
+						<div cat-name="sopa" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-5463-200x200/sopa-miso.png" />
+							</div>
+							<div class="body">
+								<div id="dish-18" class="dish-name">Sopa Miso</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-18">16.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 19 -->
+						<div cat-name="sopa" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.seekpng.com/png/full/112-1129654_ramen-bowl-png-vector-free-bowl-of-ramen.png" />
+							</div>
+							<div class="body">
+								<div id="dish-19" class="dish-name">Tonkotsu Ramen</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-19">26.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 20 -->
+						<div cat-name="sopa" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.seekpng.com/png/full/112-1129678_bowl-of-ramen-png-vector-freeuse-library-ramen.png" />
+							</div>
+							<div class="body">
+								<div id="dish-20" class="dish-name">Shoyu Ramen</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-20">26.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 21 -->
+						<div cat-name="sopa" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.aguramen.com/assets/img/ramen/hakata.png" />
+							</div>
+							<div class="body">
+								<div id="dish-21" class="dish-name">Hakata Ramen</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-21">25.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 22 -->
+						<div cat-name="bebida" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6690-200x200/cerveza-asahi-35cl.png" />
+							</div>
+							<div class="body">
+								<div id="dish-22" class="dish-name">Cerveza Asahi</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-22">12.00</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 23 -->
+						<div cat-name="bebida" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6433-200x200/coca-cola-33cl.png" />
+							</div>
+							<div class="body">
+								<div id="dish-23" class="dish-name">Coca Cola</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-23">6.50</span>
+								</div>
+							</div>
+						</div>
+						<!-- Plato 24 -->
+						<div cat-name="bebida" class="dish-item">
+							<div class="add-cart"><input type="checkbox" class="checkbox" />
+							</div>
+							<div class="photo"><img
+									src="https://www.sushishop.eu/product-6451-200x200/sake-shirakabegura-kimoto-junm.png" />
+							</div>
+							<div class="body">
+								<div id="dish-24" class="dish-name">Sake Shirakabegura
+								</div>
+								<div class="dish-price"><span
+										class="soles">S/.</span><span
+										id="price-24">35.00</span>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div id="cart" class="cont-der">
