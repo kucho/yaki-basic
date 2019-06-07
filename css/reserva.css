@@ -16,7 +16,7 @@
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
-	font-size: 14px;
+	font-size: 0.9rem;
 }
 
 
@@ -209,7 +209,7 @@ button:hover {
 }
 
 .box .box-title {
-	font-size: 20px;
+	font-size: 1.3rem;
 	font-weight: 400;
 	margin: 0;
 	padding: 10px;
