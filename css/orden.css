@@ -35,7 +35,7 @@
 .cont-izq {
 	/*background-color:blue;*/
 	color: #fefefe;
-	background-color: #A0352C;
+	background-color: crimson;
 	width: 15%;
 	height: 100%;
 
@@ -56,15 +56,43 @@
 
 .title {
 	text-align: center;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	height: 5%;
+	margin-bottom: 30px;
 }
 
 #categories,
-#dishes {
+#dishes,
+#cart {
 	overflow: scroll;
 	scrollbar-width: none;
 	/* Firefox */
 	-ms-overflow-style: none;
 	/* IE 10+ */
+}
+
+#categories .title {
+	background-color: crimson;
+	z-index: 999;
+	justify-content: center;
+	align-content: center;
+}
+
+#dishes .title {
+	background-color: #C8CEC4;
+	z-index: 999;
+	justify-content: center;
+	align-content: center;
+	margin-bottom: 20px;
+}
+
+#cart .title {
+	background-color: #E0E2E5;
+	z-index: 999;
+	justify-content: center;
+	align-content: center;
 }
 
 
@@ -73,7 +101,7 @@
 	color: black;
 	justify-content: center;
 	align-items: center;
-	margin: 50px 0;
+	margin: 20px 0;
 }
 
 .cat-item {
@@ -191,8 +219,8 @@ input[type=checkbox].checkbox {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	width: 30px;
-	height: 30px;
+	width: 1.6rem;
+	height: 1.6rem;
 	background: #C0C0C0;
 	margin: 5px;
 	margin-top: -1px;
@@ -230,11 +258,11 @@ input[type=checkbox].checkbox::after {
 
 @-webkit-keyframes checkAppear {
 	50% {
-		font-size: 2em;
+		font-size: 3.3em;
 	}
 
 	100% {
-		font-size: 1.15em;
+		font-size: 2em;
 	}
 }
 
@@ -254,4 +282,77 @@ input[type=checkbox].checkbox::after {
 
 .hide {
 	display: none !important;
+}
+
+#cart-box {
+	text-align: center;
+	justify-content: center;
+	/* Se deduce el tamaño del título y su margen hacia abajo, y el margin bottom del mismo */
+	height: calc(94% - 40px);
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+#cart-placeholder {
+	color: rgba(128, 128, 128, 0.1);
+	text-shadow: 1px 1px #9b9b9bb2;
+	font-size: 3rem;
+}
+
+.cartlist {
+	justify-content: start;
+	min-width: 90%;
+}
+
+
+table {
+	margin: 0;
+	border-collapse: collapse;
+	overflow: hidden;
+}
+
+table tr,
+table td {
+	padding: 0.2rem 1rem;
+}
+
+tr td:last-child {
+	width: 4rem;
+}
+
+
+#products td,
+#products tr {
+	border: 1px solid #808080;
+}
+
+#products {
+	border-bottom: 3px solid crimson;
+	width: 100%;
+	line-height: 2.5;
+}
+
+#products thead {
+	background-color: crimson;
+	color: white;
+	font-weight: bold;
+}
+
+#products tbody tr:nth-child(odd) {
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+#totals td {
+	border: 1px solid #808080;
+}
+
+#totals {
+	width: auto;
+	margin-right: 0px;
+	margin-left: auto;
+}
+
+#totals .subtitle {
+	text-align: right;
+	border: 0;
 }

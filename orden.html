@@ -1,81 +1,120 @@
 <!DOCTYPE html>
 <html lang="es">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>Order System</title>
-		<link rel="stylesheet" href="./css/style.css">
-		<link rel="stylesheet" href="./css/orden.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
-			crossorigin="anonymous">
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Order System</title>
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/orden.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
 
-	<body>
-
-		<header class="header sticky sticky--top js-header">
-			<div class="grid">
-				<div class="header__logo">
-					<a href="./reserva.html">
-						<img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
-					</a>
-				</div>
-				<nav class="navigation">
-					<ul class="navigation__list navigation__list--inline">
-						<li class="navigation__item"><a href="./reserva.html">Reservas</a></li>
-						<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
-						<li class="navigation__item"><a href="#">Soporte</a></li>
-					</ul>
-				</nav>
+<body>
+	<header class="header sticky sticky--top js-header">
+		<div class="grid">
+			<div class="header__logo">
+				<a href="./reserva.html">
+					<img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
+				</a>
 			</div>
-		</header>
-
-		<div id="app" class="container row">
-			<div id="info" class="row upper-info">
-				<ul>
-					<li>Mesa: #<span id="info-mesa"></span></li>
-					<li>Cód. Reserva: <span id="info-reserva"></span></li>
-					<li>Cliente: <span id="info-cliente"></span></li>
-					<li>Cantidad: <span id="info-cantidad"></span></li>
+			<nav class="navigation">
+				<ul class="navigation__list navigation__list--inline">
+					<li class="navigation__item"><a href="./reserva.html">Reservas</a></li>
+					<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
+					<li class="navigation__item"><a href="#">Soporte</a></li>
 				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<div id="app" class="container row">
+		<div id="info" class="row upper-info">
+			<ul>
+				<li>Mesa: #<span id="info-mesa"></span></li>
+				<li>Cód. Reserva: <span id="info-reserva"></span></li>
+				<li>Cliente: <span id="info-cliente"></span></li>
+				<li>Cantidad: <span id="info-cantidad"></span></li>
+			</ul>
+		</div>
+		<div id="main" class="row">
+			<div id="categories" class="cont-izq">
+				<div class="title row">
+					<h3>Paso 1. Selecciona la categoría</h3>
+				</div>
+				<div class="row">
+
+					<div class="mouse">
+						<span></span>
+					</div>
+					<!-- Categorías creadas dinámicamente van acá -->
+					<div id="cat-list" class="cat-list column"></div>
+				</div>
 			</div>
-			<div id="main" class="row">
-				<div id="categories" class="cont-izq">
-					<div class="title row">
-						<h3>Paso 1. Selecciona la categoría</h3>
-					</div>
-					<div class="row">
+			<div id="dishes" class="cont-cen">
+				<div class="title row">
+					<h3>Paso 2. Selecciona los platos</h3>
+				</div>
+				<!-- Platos creados dinámicamente van acá-->
+				<div id="dish-list" class="dish-list row"></div>
+			</div>
 
-						<div class="mouse">
-							<span></span>
-						</div>
-						<!-- Categorías creadas dinámicamente van acá -->
-						<div id="cat-list" class="cat-list column"></div>
-					</div>
+			<div id="cart" class="cont-der">
+				<div class="title row">
+					<h3>Paso 3. Gestiona los pedidos</h3>
 				</div>
-				<div id="dishes" class="cont-cen">
-					<div class="title row">
-						<h3>Paso 2. Selecciona los platos</h3>
+				<div id="cart-box" class="row" style="align-content: center;">
+					<div class="cartlist column">
+						<span id="cart-placeholder">Seleccione un plato para comenzar</span>
+						<table id="products" style="display:none;">
+							<thead>
+								<tr>
+									<td style="width:10%;">Estado</td>
+									<td>Producto</td>
+									<td style="width:20%;">Cantidad</td>
+									<td style="width:10%;">Precio</td>
+									<td>Total</td>
+								</tr>
+							</thead>
+							<tbody id="productList">
+								<!-- Nuevos productos se agregan o quitan dinámicamente -->
+							</tbody>
+						</table>
+
+						<table id="totals" style="display:none;">
+							<tr>
+								<td style="border:0; text-align:right;">SubTotal</td>
+								<td id="subtotal"></td>
+							</tr>
+
+							<tr>
+								<td style="border:0; text-align:right;">IGV (18%)</td>
+								<td id="igv"></td>
+							</tr>
+
+							<tr>
+								<td style="border:0; text-align:right;">Servicio (10%)</td>
+								<td id="servicio"></td>
+							</tr>
+
+							<tr>
+								<td style="border:0; text-align:right;">Total</td>
+								<td id="total"></td>
+							</tr>
+						</table>
 					</div>
-					<!-- Platos creados dinámicamente van acá-->
-					<div id="dish-list" class="dish-list row"></div>
 				</div>
 
-				<div id="cart" class="cont-der">
-					<div class="title row">
-						<h3>Paso 3. Gestiona los pedidos</h3>
-					</div>
-					<div class="cartlist row"></div>
-				</div>
 			</div>
 		</div>
+	</div>
 
 
 
-		<script src="./js/header.js" async defer></script>
-		<script src="./js/orden.js" async defer></script>
-	</body>
+	<script src="./js/header.js" async defer></script>
+	<script src="./js/orden.js" async defer></script>
+</body>
 
 </html>
