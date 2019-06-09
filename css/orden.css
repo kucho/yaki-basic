@@ -319,10 +319,10 @@ tr td:last-child {
 }
 
 
-#products td,
-#products tr {
+#products td {
 	border: 1px solid #808080;
 }
+
 
 #products {
 	border-bottom: 3px solid crimson;
@@ -353,4 +353,22 @@ tr td:last-child {
 #totals .subtitle {
 	text-align: right;
 	border: 0;
+}
+
+.red {
+	color: #ed6a5a;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.green {
+	color: #69995D;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0);
+}
+
+td i {
+	font-size: 1.2em !important;
+	align-self: center;
+	margin: 0 10px;
 }

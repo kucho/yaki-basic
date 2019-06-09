@@ -238,59 +238,84 @@ function init() {
  */
 function AlCarro(elemento, dish_id) {
 
+	switch (elemento.checked) {
+		case true:
+			AgregaItemCarrito(dish_id)
+			break
+		case false:
+			/* Si borro cuando hay solo un elemento */
+			BorrarItemCarrito(dish_id)
+			break
+	}
+	CalculaTotal()
+}
+
+/**
+ *Agrega item al carrito
+ */
+function AgregaItemCarrito(dish_id) {
 	let items = document.getElementsByClassName("cart-item")
 	let tabla_products = document.getElementById("products")
 	let productList = document.getElementById("productList")
 	let tabla_total = document.getElementById("totals")
 	let cart_placeholder = document.getElementById("cart-placeholder")
 
-	switch (elemento.checked) {
-
-		case true:
-			/* Si todavía no había items */
-			if (items.length == 0) {
-				/* Ocultamos placeholder y mostramos tablas */
-				document.getElementById("cart-box").removeAttribute("style")
-				cart_placeholder.setAttribute("style", "display:none;")
-				tabla_products.removeAttribute("style")
-				tabla_total.removeAttribute("style")
-			}
-
-			let nombre = document.getElementById("dish-" + dish_id).innerText
-			let precio = document.getElementById("price-" + dish_id).innerText
-
-			let producto = document.createElement("tr")
-			producto.classList.add("cart-item")
-			producto.id = "cartProduct-" + dish_id
-			producto.innerHTML = `<td>Preparando</td>
-					      <td>${nombre}</td>
-					      <td>1</td>
-					      <td><span class="soles">S/.</span>${precio}</td>
-					      <td><span class="soles">S/.</span><span class="total">${precio}<span></td>`
-
-			productList.appendChild(producto)
-
-
-			break
-		case false:
-			/* Si borro cuando hay solo un elemento */
-			if (confirm("¿Está seguro que desea eliminar este producto?")) {
-				if (items.length == 1) {
-					/* Mostramos el placeholder, ocultamos la tabla y restauramos el placeholder */
-					document.getElementById("cart-box").setAttribute("style", "align-content: center;")
-					cart_placeholder.removeAttribute("style")
-					tabla_products.setAttribute("style", "display:none;")
-					tabla_total.setAttribute("style", "display:none;")
-				}
-
-				let cartProduct = document.getElementById("cartProduct-" + dish_id)
-				cartProduct.parentNode.removeChild(cartProduct)
-			}
-
-			break
+	/* Si todavía no había items */
+	if (items.length == 0) {
+		/* Ocultamos placeholder y mostramos tablas */
+		document.getElementById("cart-box").removeAttribute("style")
+		cart_placeholder.setAttribute("style", "display:none;")
+		tabla_products.removeAttribute("style")
+		tabla_total.removeAttribute("style")
 	}
 
-	CalculaTotal()
+	let nombre = document.getElementById("dish-" + dish_id).innerText
+	let precio = document.getElementById("price-" + dish_id).innerText
+
+	let producto = document.createElement("tr")
+	producto.classList.add("cart-item")
+	producto.id = "cartProduct-" + dish_id
+	producto.innerHTML = `<td>Preparando</td>
+					      <td>${nombre}</td>
+					      <td>
+						<i class="fa fa-minus-circle red" title="Disminuir" onClick="Down(${dish_id})"></i>
+						<span id="amount-${dish_id}">1</span>
+						<i class="fa fa-plus-circle green" title="Aumentar" onClick="Up(${dish_id})"></i>
+					      </td>
+					      <td><span class="soles">S/.</span>${precio}</td>
+					      <td><span class="soles">S/.</span><span id="total-${dish_id}" class="total">${precio}<span></td>`
+
+	productList.appendChild(producto)
+}
+
+/**
+ *Elimina item del carrito
+ */
+function BorrarItemCarrito(dish_id) {
+
+	let items = document.getElementsByClassName("cart-item")
+	let tabla_products = document.getElementById("products")
+	let tabla_total = document.getElementById("totals")
+	let cart_placeholder = document.getElementById("cart-placeholder")
+
+	if (confirm("¿Está seguro que desea eliminar este producto?")) {
+		if (items.length == 1) {
+			/* Mostramos el placeholder, ocultamos la tabla y restauramos el placeholder */
+			document.getElementById("cart-box").setAttribute("style", "align-content: center;")
+			cart_placeholder.removeAttribute("style")
+			tabla_products.setAttribute("style", "display:none;")
+			tabla_total.setAttribute("style", "display:none;")
+		}
+
+		let cartProduct = document.getElementById("cartProduct-" + dish_id)
+		cartProduct.parentNode.removeChild(cartProduct)
+
+		document.getElementById("checkbox-" + dish_id).checked = false
+
+		return true
+	} else {
+		return false
+	}
 }
 
 /**
@@ -314,6 +339,47 @@ function CalculaTotal() {
 	document.getElementById("igv").innerHTML = `<span class="soles">S/.</span>${igv.toFixed(2)}`
 	document.getElementById("servicio").innerHTML = `<span class="soles">S/.</span>${servicio.toFixed(2)}`
 	document.getElementById("total").innerHTML = `<span class="soles">S/.</span>${total.toFixed(2)}`
+}
+
+/**
+ *Aumenta la cantidad y recalcula el total
+ */
+function Up(cartItem) {
+
+	let el = document.getElementById("amount-" + cartItem)
+	let cantidad = parseInt(el.innerText)
+	el.innerText = (cantidad + 1)
+
+	let precio = parseFloat(document.getElementById("price-" + cartItem).innerText)
+	let total = (cantidad + 1) * precio
+
+	document.getElementById("total-" + cartItem).innerText = total.toFixed(2)
+
+	CalculaTotal()
+}
+
+/**
+ *Disminuye la cantidad y recalcula el total
+ */
+function Down(cartItem) {
+
+	let el = document.getElementById("amount-" + cartItem)
+	let cantidad = parseInt(el.innerText)
+
+	if (cantidad == 1) {
+		if (BorrarItemCarrito(cartItem)) {
+			el.innerText = (cantidad - 1)
+		} else {
+			return false
+		}
+
+	} else {
+		let precio = parseFloat(document.getElementById("price-" + cartItem).innerText)
+		let total = (cantidad - 1) * precio
+		document.getElementById("total-" + cartItem).innerText = total.toFixed(2)
+	}
+
+	CalculaTotal()
 }
 
 /**
@@ -358,6 +424,7 @@ function crearPlatos() {
 		check_box.classList.add("add-cart")
 		let check = document.createElement("input")
 		check.type = "checkbox"
+		check.id = "checkbox-" + dishes[i].id
 		check.classList.add("checkbox")
 		check.setAttribute("onchange", `AlCarro(this,${dishes[i].id})`)
 		check_box.appendChild(check)
