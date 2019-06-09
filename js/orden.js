@@ -55,168 +55,168 @@ const dishes = [{
 		id: 1,
 		label: "Ensalada de Calamar",
 		cat: "entrada",
-		img: "https://www.sushishop.eu/product-5488-400x400/ensalada-de-calamar.png",
+		img: "img/ensalada-de-calamar.png",
 		price: 16.00
 	},
 	{
 		id: 2,
 		label: "Ensalada de Algas",
 		cat: "entrada",
-		img: "https://www.sushishop.eu/product-5475-200x200/ensalada-de-algas.png",
+		img: "img/ensalada-de-algas.png",
 		price: 16.00
 	},
 	{
 		id: 3,
 		label: "Ensalada de Zanahorias",
 		cat: "entrada",
-		img: "https://www.sushishop.eu/product-6825-200x200/ensalada-de-zanahorias-con-sal.png",
+		img: "img/ensalada-de-zanahorias-con-sal.png",
 		price: 15.00
 	},
 	{
 		id: 4,
 		label: "Ceviche de dorada y leche de mango",
 		cat: "entrada",
-		img: "https://www.sushishop.eu/product-6793-200x200/ceviche-de-dorada-a-leche-mang.png",
+		img: "img/ceviche-de-dorada-a-leche-mang.png",
 		price: 22.00
 	},
 	{
 		id: 5,
 		label: "Sashimi Salmón 5 piezas",
 		cat: "sashimi",
-		img: "https://www.sushishop.eu/product-6059-200x200/sashimi-salmon-5-piezas.png",
+		img: "img/sashimi-salmon-5-piezas.png",
 		price: 20.00
 	},
 	{
 		id: 6,
 		label: "Nigiri Salmón",
 		cat: "nigiri",
-		img: "https://www.sushishop.eu/product-5425-200x200/nigiri-salmon.png",
+		img: "img/nigiri-salmon.png",
 		price: 13.50
 	},
 	{
 		id: 7,
 		label: "Nigiri Atún",
 		cat: "nigiri",
-		img: "https://www.sushishop.eu/product-5435-200x200/nigiri-atun.png",
+		img: "img/nigiri-atun.png",
 		price: 13.50
 	},
 	{
 		id: 8,
 		label: "Nigiri Huevas de Salmón",
 		cat: "nigiri",
-		img: "https://www.sushishop.eu/product-5464-200x200/nigiri-huevas-de-salmon.png",
+		img: "img/nigiri-huevas-de-salmon.png",
 		price: 17.50
 	},
 	{
 		id: 9,
 		label: "Nigiri Black Pepper",
 		cat: "nigiri",
-		img: "https://www.sushishop.eu/product-5444-200x200/nigiri-black-pepper.png",
+		img: "img/nigiri-black-pepper.png",
 		price: 15.50
 	},
 	{
 		id: 10,
 		label: "Maki Aguacate",
 		cat: "maki",
-		img: "https://www.sushishop.eu/product-5447-200x200/aguacate.png",
+		img: "img/aguacate.png",
 		price: 18.00
 	},
 	{
 		id: 11,
 		label: "Maki Atún Picante",
 		cat: "maki",
-		img: "https://www.sushishop.eu/product-6813-200x200/atun-picante.png",
+		img: "img/atun-picante.png",
 		price: 23.00
 	},
 	{
 		id: 12,
 		label: "Maki Crangrejo",
 		cat: "maki",
-		img: "https://www.sushishop.eu/product-6029-200x200/cangrejo.png",
+		img: "img/cangrejo.png",
 		price: 27.00
 	},
 	{
 		id: 13,
 		label: "Arroz Blanco",
 		cat: "arroz",
-		img: "https://www.sushishop.eu/product-5461-200x200/arroz-blanco.png",
+		img: "img/arroz-blanco.png",
 		price: 11.00
 	},
 	{
 		id: 14,
 		label: "Arroz Avinagrado",
 		cat: "arroz",
-		img: "https://www.sushishop.eu/product-5462-200x200/arroz-avinagrado.png",
+		img: "img/arroz-avinagrado.png",
 		price: 12.00
 	},
 	{
 		id: 15,
 		label: "Yakisoba",
 		cat: "tallarin",
-		img: "https://www.narusushi.es/wp-content/uploads/entrantes-yakisoba.png",
+		img: "img/yakisoba.png",
 		price: 25.00
 	},
 	{
 		id: 16,
 		label: "Set para 2",
 		cat: "set",
-		img: "https://www.sushishop.eu/product-6921-400x400/box-for-two.png",
+		img: "img/setpara2.png",
 		price: 120.00
 	},
 	{
 		id: 17,
 		label: "Happy Set",
 		cat: "set",
-		img: "https://www.sushishop.eu/product-7085-200x200/happy-sushi-box.png",
+		img: "img/happyset.png",
 		price: 80.00
 	},
 	{
 		id: 18,
 		label: "Sopa Miso",
 		cat: "sopa",
-		img: "https://www.sushishop.eu/product-5463-200x200/sopa-miso.png",
+		img: "img/sopa-miso.png",
 		price: 16.00
 	},
 	{
 		id: 19,
 		label: "Tonkotsu Ramen",
 		cat: "sopa",
-		img: "https://www.seekpng.com/png/full/112-1129654_ramen-bowl-png-vector-free-bowl-of-ramen.png",
+		img: "img/tonkotsu ramen.png",
 		price: 26.00
 	},
 	{
 		id: 20,
 		label: "Shoyu Ramen",
 		cat: "sopa",
-		img: "https://www.seekpng.com/png/full/112-1129678_bowl-of-ramen-png-vector-freeuse-library-ramen.png",
+		img: "img/shoyu ramen.png",
 		price: 26.00
 	},
 	{
 		id: 21,
 		label: "Hakata Ramen",
 		cat: "sopa",
-		img: "https://www.aguramen.com/assets/img/ramen/hakata.png",
+		img: "img/hakata ramen.png",
 		price: 25.00
 	},
 	{
 		id: 22,
 		label: "Cerveza Asahi",
 		cat: "bebida",
-		img: "https://www.sushishop.eu/product-6690-200x200/cerveza-asahi-35cl.png",
+		img: "img/cerveza-asahi-35cl.png",
 		price: 12.00
 	},
 	{
 		id: 23,
 		label: "Coca Cola",
 		cat: "bebida",
-		img: "https://www.sushishop.eu/product-6433-200x200/coca-cola-33cl.png",
+		img: "img/coca-cola-33cl.png",
 		price: 6.5
 	},
 	{
 		id: 24,
 		label: "Sake Shirakabegura",
 		cat: "bebida",
-		img: "https://www.sushishop.eu/product-6451-200x200/sake-shirakabegura-kimoto-junm.png",
+		img: "img/sake.png",
 		price: 35.00
 	}
 ]
