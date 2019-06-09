@@ -244,7 +244,10 @@ function AlCarro(elemento, dish_id) {
 			break
 		case false:
 			/* Si borro cuando hay solo un elemento */
-			BorrarItemCarrito(dish_id)
+			if (!BorrarItemCarrito(dish_id) == true) {
+				elemento.checked = !elemento.checked
+			}
+
 			break
 	}
 	CalculaTotal()
@@ -367,18 +370,16 @@ function Down(cartItem) {
 	let cantidad = parseInt(el.innerText)
 
 	if (cantidad == 1) {
-		if (BorrarItemCarrito(cartItem)) {
-			el.innerText = (cantidad - 1)
-		} else {
+		if (!BorrarItemCarrito(cartItem)) {
 			return false
 		}
 
 	} else {
+		el.innerText = (cantidad - 1)
 		let precio = parseFloat(document.getElementById("price-" + cartItem).innerText)
 		let total = (cantidad - 1) * precio
 		document.getElementById("total-" + cartItem).innerText = total.toFixed(2)
 	}
-
 	CalculaTotal()
 }
 
