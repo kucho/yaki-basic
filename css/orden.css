@@ -206,7 +206,7 @@
 
 .add-cart {
 	position: absolute;
-	right: 20px;
+	right: 3%;
 	font-size: 1.4rem;
 	cursor: pointer;
 }
@@ -298,7 +298,7 @@ input[type=checkbox].checkbox::after {
 
 .cartlist {
 	justify-content: start;
-	min-width: 90%;
+	width: 90%;
 	overflow-x: auto;
 }
 
@@ -371,4 +371,106 @@ td i {
 	font-size: 1.2em !important;
 	align-self: center;
 	margin: 0 10px;
+}
+
+
+
+/* 720P */
+@media only screen and (max-width: 1280px) {
+	.dish-item {
+		width: 40%;
+	}
+
+
+	table {
+		font-size: 0.85rem;
+	}
+
+	td i {
+		margin: 0;
+	}
+
+	tr td:last-child {
+		width: 1rem;
+	}
+}
+
+/* Laptop Gonzales */
+@media only screen and (max-width: 1366px) {
+	.dish-item {
+		width: 35%;
+	}
+
+	.title {
+		height: 8%;
+	}
+
+	#cart-box {
+		height: calc(90% - 40px);
+	}
+
+	h3 {
+		font-size: 1rem;
+	}
+
+	h4 {
+		font-size: 0.9rem;
+	}
+
+	#cart-placeholder {
+		font-size: 2rem;
+	}
+
+	.mouse {
+		left: 12%;
+	}
+
+}
+
+@media only screen and (min-width: 1281px) and (max-width:1366px) {
+	table {
+		font-size: 0.85rem;
+	}
+
+	td i {
+		margin: 0 0.2em;
+	}
+}
+
+/* HD */
+@media only screen and (min-width: 1920px) {
+	.dish-item {
+		width: 25%;
+	}
+
+	h3 {
+		font-size: 1.1rem;
+	}
+
+	h4 {
+		font-size: 1rem;
+	}
+
+	#cart-placeholder {
+		font-size: 2.5rem;
+	}
+}
+
+/* 2K en adelante */
+@media only screen and (min-width: 2560px) {
+	.dish-item {
+		width: 20%;
+	}
+
+	#cart-placeholder {
+		font-size: 3rem;
+	}
+
+	h3 {
+		font-size: 1.2rem;
+	}
+
+	h4 {
+		font-size: 1rem;
+	}
 }
