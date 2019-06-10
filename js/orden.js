@@ -278,15 +278,23 @@ function AgregaItemCarrito(dish_id) {
 	let producto = document.createElement("tr")
 	producto.classList.add("cart-item")
 	producto.id = "cartProduct-" + dish_id
-	producto.innerHTML = `<td>Preparando</td>
-					      <td>${nombre}</td>
-					      <td>
-						<i class="fa fa-minus-circle red" title="Disminuir" onClick="Down(${dish_id})"></i>
-						<span id="amount-${dish_id}">1</span>
-						<i class="fa fa-plus-circle green" title="Aumentar" onClick="Up(${dish_id})"></i>
-					      </td>
-					      <td><span class="soles">S/.</span>${precio}</td>
-					      <td><span class="soles">S/.</span><span id="total-${dish_id}" class="total">${precio}<span></td>`
+	producto.innerHTML = `<td style="position:relative;">
+				<div class="box">
+				  <select>
+				    <option>En espera</option>
+				    <option>Preparando</option>
+				    <option>Entregado</option>
+				  </select>
+				</div>
+			      </td>
+			      <td>${nombre}</td>
+			      <td>
+				<i class="fa fa-minus-circle red" title="Disminuir" onClick="Down(${dish_id})"></i>
+				<span id="amount-${dish_id}">1</span>
+				<i class="fa fa-plus-circle green" title="Aumentar" onClick="Up(${dish_id})"></i>
+			      </td>
+			      <td><span class="soles">S/.</span>${precio}</td>
+			      <td><span class="soles">S/.</span><span id="total-${dish_id}" class="total">${precio}<span></td>`
 
 	productList.appendChild(producto)
 }

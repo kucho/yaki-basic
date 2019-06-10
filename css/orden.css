@@ -425,6 +425,14 @@ td i {
 		left: 12%;
 	}
 
+	table {
+		line-height: 2;
+	}
+
+	.cartlist {
+		width: 95%;
+	}
+
 }
 
 @media only screen and (min-width: 1281px) and (max-width:1366px) {
@@ -458,6 +466,24 @@ td i {
 	td i {
 		margin: 0 0.6rem;
 	}
+
+	.box select option {
+		padding: 0 20px;
+	}
+
+	.box::before {
+		content: "\f13a";
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		position: absolute;
+		right: 12%;
+		text-align: center;
+		font-size: 1.4em;
+		line-height: 45px;
+		color: rgba(83, 83, 83, 0.5);
+		background-color: rgba(255, 255, 255, 0.1);
+		pointer-events: none;
+	}
 }
 
 /* 2K en adelante */
@@ -481,4 +507,22 @@ td i {
 	td i {
 		margin: 0 0.9rem;
 	}
+}
+
+.box {
+	border: 1px #00000030 solid;
+	border-radius: 10px;
+	margin: 0.3em 0;
+}
+
+.box select {
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0);
+	padding: 12px;
+	border: none;
+	-webkit-appearance: button;
+	appearance: button;
+	outline: none;
+	font-size: inherit;
+	cursor: pointer;
 }
