@@ -284,22 +284,24 @@ input[type=checkbox].checkbox::after {
 	text-align: center;
 	justify-content: center;
 	/* Se deduce el tamaño del título y su margen hacia abajo, y el margin bottom del mismo */
-	height: calc(94% - 40px);
-	margin-bottom: 20px;
+	height: calc(87% - 30px);
 	width: 100%;
-	overflow: hidden;
+	overflow: scroll;
+	scrollbar-width: none;
 }
 
 #cart-placeholder {
 	color: rgba(128, 128, 128, 0.1);
 	text-shadow: 1px 1px #9b9b9bb2;
 	font-size: 3rem;
+	margin: 0 auto;
 }
 
-.cartlist {
+#cartlist {
 	justify-content: start;
 	width: 90%;
 	overflow-x: auto;
+	align-content: flex-start;
 }
 
 
@@ -348,6 +350,7 @@ tr td:last-child {
 	width: auto;
 	margin-right: 0px;
 	margin-left: auto;
+	margin-bottom: 2em;
 }
 
 #totals .subtitle {
@@ -373,7 +376,70 @@ td i {
 	margin: 0 10px;
 }
 
+#resumen {
+	width: 100%;
+	height: 8%;
+}
 
+#estados {
+	width: 70%;
+	height: 100%;
+	background-color: #C0C0C0AB;
+	border-top-left-radius: 20px;
+	border-end-start-radius: 20px;
+	font-size: 1rem;
+}
+
+#cancelar {
+	width: 20%;
+	height: 100%;
+	background-color: #C0C0C0AB;
+	border-top-right-radius: 20px;
+	border-end-end-radius: 20px;
+	border-left: #72727230 solid 1px;
+}
+
+.estado {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.estado img {
+	width: 10%;
+}
+
+.estado span {
+	margin: 0 0.5rem;
+}
+
+.estado .titulo {
+	width: 100%;
+	align-content: space-evenly;
+}
+
+#btn-pagar {
+	border-radius: 25px;
+	transition: all 0.3s ease-in-out;
+	background: #086fcf;
+	color: #fff;
+	padding: 10px 15px;
+}
+
+#btn-pagar:hover {
+	background-color: #0084ff
+}
+
+#btn-pagar i {
+	margin-right: 0.6em;
+}
+
+#btn-pagar-box {
+	width: 80%;
+	max-width: 110px;
+	margin: 0 auto;
+}
 
 /* 720P */
 @media only screen and (max-width: 1280px) {
@@ -393,6 +459,10 @@ td i {
 	tr td:last-child {
 		width: 1rem;
 	}
+
+	#resumen {
+		height: 9%;
+	}
 }
 
 /* Laptop Gonzales */
@@ -406,7 +476,11 @@ td i {
 	}
 
 	#cart-box {
-		height: calc(90% - 40px);
+		height: calc(82% - 40px);
+	}
+
+	#cancelar {
+		width: 29%;
 	}
 
 	h3 {
@@ -525,4 +599,128 @@ td i {
 	outline: none;
 	font-size: inherit;
 	cursor: pointer;
+}
+
+
+.modal {
+	color: black;
+	background: #fefefe;
+	width: 30%;
+	margin: 50px auto;
+	border-radius: 5px;
+	text-align: left;
+	-webkit-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.75);
+	z-index: 1050;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	transition: opacity .15s linear;
+	opacity: 0;
+	-webkit-transition: opacity .15s linear;
+	-o-transition: opacity .15s linear;
+	opacity: 1;
+	display: none;
+}
+
+.modal-body,
+.modal-footer,
+.modal-heading {
+	padding: 25px 20px;
+}
+
+.modal-heading {
+	border-bottom: 1px solid #f4c8c8;
+	text-align: center;
+}
+
+.modal-heading h2 {
+	margin: 0;
+}
+
+.modal-heading h2 i {
+	margin-right: 10px;
+}
+
+.modal-heading .close {
+	position: absolute;
+	right: 20px;
+	top: 17px;
+	font-size: 28px;
+}
+
+.modal-heading .close:hover {
+	cursor: pointer;
+}
+
+.modal-footer {
+	border-top: 1px solid #f4c8c8;
+	position: relative;
+	bottom: 0;
+}
+
+.modal-footer button {
+	width: 100%;
+	font-size: 16px;
+	padding: 10px;
+	display: block;
+	background-color: crimson;
+	border: 1px solid transparent;
+	color: #ffffff;
+	font-weight: bold;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+
+.modal-footer button:hover {
+	background-color: #ffffff;
+	color: crimson;
+	border-color: crimson;
+	cursor: pointer;
+}
+
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: #000;
+	opacity: .5;
+	z-index: 999;
+	display: none;
+}
+
+.modal-open {
+	display: block;
+}
+
+.modal input {
+	display: block;
+	padding: 0.25em;
+	width: 100%;
+	margin-bottom: 1em;
+	border-radius: 3px;
+	border: 1px solid #BABABA;
+	line-height: 1.75;
+}
+
+.tipo-comp {
+	justify-content: initial;
+}
+
+.radio-wrapper input {
+	float: left;
+	margin: 5px 10px 0 0;
+}
+
+.inline {
+	width: auto;
+	margin-right: 1.5em;
 }

@@ -74,7 +74,7 @@ const dishes = [{
 	},
 	{
 		id: 4,
-		label: "Ceviche de dorada y leche de mango",
+		label: "Ceviche de dorada",
 		cat: "entrada",
 		img: "img/ceviche-de-dorada-a-leche-mang.png",
 		price: 22.00
@@ -234,6 +234,21 @@ function init() {
 
 
 /**
+ *Comprueba que todos los platos hayan sido entragados para mostrar pop-up para llenar los datos de la boleta o factura
+ */
+function Facturar() {
+	let cuenta = ContarEstados()
+
+	if (cuenta.cocinando + cuenta.espera + cuenta.servido != cuenta.servido) {
+		if (confirm("Aún no se han servido todo los platos. ¿Está seguro de querer continuar?")) {
+			/* Procesar pop-up */
+			AbrirModal()
+		} else {
+			return false
+		}
+	}
+}
+/**
  *Verifica que el producto haya sido agregado al carrito de pedidos. Si ya se estaba ahí, lo retira. Si no estaba, lo añade.
  */
 function AlCarro(elemento, dish_id) {
@@ -251,6 +266,7 @@ function AlCarro(elemento, dish_id) {
 			break
 	}
 	CalculaTotal()
+	ActualizaResumen()
 }
 
 /**
@@ -262,6 +278,7 @@ function AgregaItemCarrito(dish_id) {
 	let productList = document.getElementById("productList")
 	let tabla_total = document.getElementById("totals")
 	let cart_placeholder = document.getElementById("cart-placeholder")
+	let resumen = document.getElementById("resumen")
 
 	/* Si todavía no había items */
 	if (items.length == 0) {
@@ -270,6 +287,7 @@ function AgregaItemCarrito(dish_id) {
 		cart_placeholder.setAttribute("style", "display:none;")
 		tabla_products.removeAttribute("style")
 		tabla_total.removeAttribute("style")
+		resumen.removeAttribute("style")
 	}
 
 	let nombre = document.getElementById("dish-" + dish_id).innerText
@@ -280,10 +298,10 @@ function AgregaItemCarrito(dish_id) {
 	producto.id = "cartProduct-" + dish_id
 	producto.innerHTML = `<td style="position:relative;">
 				<div class="box">
-				  <select>
+				  <select onchange="ActualizaResumen()">
 				    <option>En espera</option>
 				    <option>Preparando</option>
-				    <option>Entregado</option>
+				    <option>Servido</option>
 				  </select>
 				</div>
 			      </td>
@@ -308,6 +326,7 @@ function BorrarItemCarrito(dish_id) {
 	let tabla_products = document.getElementById("products")
 	let tabla_total = document.getElementById("totals")
 	let cart_placeholder = document.getElementById("cart-placeholder")
+	let resumen = document.getElementById("resumen")
 
 	if (confirm("¿Está seguro que desea eliminar este producto?")) {
 		if (items.length == 1) {
@@ -316,6 +335,7 @@ function BorrarItemCarrito(dish_id) {
 			cart_placeholder.removeAttribute("style")
 			tabla_products.setAttribute("style", "display:none;")
 			tabla_total.setAttribute("style", "display:none;")
+			resumen.setAttribute("style", "display:none;")
 		}
 
 		let cartProduct = document.getElementById("cartProduct-" + dish_id)
@@ -391,6 +411,47 @@ function Down(cartItem) {
 	CalculaTotal()
 }
 
+/**
+ *Calcula el total de platos pendientes
+ */
+function ActualizaResumen() {
+
+	let cuenta = ContarEstados()
+
+	document.getElementById("n-espera").innerText = cuenta.espera
+	document.getElementById("n-preparando").innerText = cuenta.cocinando
+	document.getElementById("n-servido").innerText = cuenta.servido
+}
+
+/**
+ *Recorre el carrito para retonar la cantidad de los platos en espera, cocinados y servidos
+ */
+function ContarEstados() {
+	let states = document.getElementsByTagName("select")
+
+	let espera, cocinando, servido
+	espera = cocinando = servido = 0
+
+	for (let i = 0; i < states.length; i++) {
+		switch (states[i].value) {
+			case "En espera":
+				espera++
+				break
+			case "Preparando":
+				cocinando++
+				break
+			case "Servido":
+				servido++
+				break
+		}
+	}
+
+	return {
+		espera,
+		cocinando,
+		servido
+	}
+}
 /**
  * Crea las categorías
  */
@@ -513,4 +574,96 @@ function muestraSeleccion(category) {
 			}
 		}
 	}
+}
+
+/**
+ *Abre un pop-up para solicitar la información de facturación
+ */
+
+function AbrirModal() {
+	let modalElement = document.getElementById("static")
+	let backdrop = document.createElement('div')
+	backdrop.id = "modal-backdrop"
+	backdrop.classList.add("modal-backdrop")
+	document.body.appendChild(backdrop)
+	backdrop.classList.add("modal-open")
+	modalElement.classList.add("modal-open")
+
+	LimpiarModal()
+
+	document.getElementById("factura-monto").innerHTML = document.getElementById("total").innerHTML
+	document.getElementById("modal-usuario").value = document.getElementById("info-cliente").innerText
+}
+
+/**
+ *Elimina el fondo oscurecedor y oculta el pop-up
+ */
+
+function CerrarModal() {
+	let backdrop = document.getElementById("modal-backdrop")
+	backdrop.parentNode.removeChild(backdrop)
+	document.getElementById("static").classList.remove("modal-open")
+}
+
+/**
+ *Limpia los valores ingresador en el pop-up
+ */
+function LimpiarModal() {
+	document.getElementById("modal-usuario").value = ""
+	document.getElementById("modal-numero").value = ""
+	document.getElementById("modal-email").value = ""
+	document.getElementById("factura-monto").innerHTML = ""
+
+}
+
+/**
+ *Muestra un mensaje de éxito cuanto todos los campos estén bien llenados
+ */
+function GenerarFactura() {
+
+	let container = document.getElementById("modal-body")
+	let texto
+	let color
+
+	switch (RevisaFactura()) {
+		case true:
+			texto = "El comprobante fue creado y enviado al correo designado"
+			color = "green"
+			break
+
+		case false:
+			texto = "Por favor complete todos los campos antes de proceder"
+			color = "crimson"
+			break
+	}
+
+	let mensaje = document.getElementById("mensaje")
+
+	if (mensaje == undefined) {
+		mensaje = document.createElement("p")
+		mensaje.id = "mensaje"
+		container.appendChild(mensaje)
+	}
+
+	mensaje.setAttribute("style", `width:100%;background-color:${color};color:white;text-align:center;`)
+	mensaje.innerText = texto
+}
+
+/**
+ *Chequea si los campos de la facturación son válidos
+ */
+function RevisaFactura() {
+
+	let inputs = document.getElementsByTagName("input")
+
+	let val = true
+
+	for (let i = 0; i < inputs.length; i++) {
+		if (inputs[i].checkValidity() == false) {
+			val = false
+			break
+		}
+	}
+
+	return val
 }
