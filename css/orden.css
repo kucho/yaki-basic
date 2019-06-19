@@ -441,147 +441,6 @@ td i {
     margin: 0 auto;
 }
 
-/* 720P */
-@media only screen and (max-width: 1280px) {
-    .dish-item {
-        width: 40%;
-    }
-
-
-    table {
-        font-size: 0.85rem;
-    }
-
-    td i {
-        margin: 0;
-    }
-
-    tr td:last-child {
-        width: 1rem;
-    }
-
-    #resumen {
-        height: 9%;
-    }
-}
-
-/* Laptop Gonzales */
-@media only screen and (max-width: 1440px) {
-    .dish-item {
-        width: 35%;
-    }
-
-    .title {
-        height: 8%;
-    }
-
-    #cart-box {
-        height: calc(82% - 40px);
-    }
-
-    #cancelar {
-        width: 29%;
-    }
-
-    h3 {
-        font-size: 1rem;
-    }
-
-    h4 {
-        font-size: 0.9rem;
-    }
-
-    #cart-placeholder {
-        font-size: 2rem;
-    }
-
-    .mouse {
-        left: 12%;
-    }
-
-    table {
-        line-height: 2;
-    }
-
-    .cartlist {
-        width: 95%;
-    }
-
-}
-
-@media only screen and (min-width: 1281px) and (max-width:1366px) {
-    table {
-        font-size: 0.85rem;
-    }
-
-    td i {
-        margin: 0 0.2em;
-    }
-}
-
-/* HD */
-@media only screen and (min-width: 1920px) {
-    .dish-item {
-        width: 25%;
-    }
-
-    h3 {
-        font-size: 1.1rem;
-    }
-
-    h4 {
-        font-size: 1rem;
-    }
-
-    #cart-placeholder {
-        font-size: 2.5rem;
-    }
-
-    td i {
-        margin: 0 0.6rem;
-    }
-
-    .box select option {
-        padding: 0 20px;
-    }
-
-    .box::before {
-        content: "\f13a";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        position: absolute;
-        right: 12%;
-        text-align: center;
-        font-size: 1.4em;
-        line-height: 45px;
-        color: rgba(83, 83, 83, 0.5);
-        background-color: rgba(255, 255, 255, 0.1);
-        pointer-events: none;
-    }
-}
-
-/* 2K en adelante */
-@media only screen and (min-width: 2560px) {
-    .dish-item {
-        width: 20%;
-    }
-
-    #cart-placeholder {
-        font-size: 3rem;
-    }
-
-    h3 {
-        font-size: 1.2rem;
-    }
-
-    h4 {
-        font-size: 1rem;
-    }
-
-    td i {
-        margin: 0 0.9rem;
-    }
-}
 
 .box {
     border: 1px #00000030 solid;
@@ -592,7 +451,7 @@ td i {
 .box select {
     text-align: center;
     background-color: rgba(255, 255, 255, 0);
-    padding: 12px;
+    padding: 0.7em;
     border: none;
     -webkit-appearance: button;
     appearance: button;
@@ -723,4 +582,161 @@ td i {
 .inline {
     width: auto;
     margin-right: 1.5em;
+}
+
+/* 720P */
+@media only screen and (max-width: 1280px) {
+    .dish-item {
+        width: 40%;
+    }
+
+
+    table {
+        font-size: 0.85rem;
+    }
+
+    td i {
+        margin: 0;
+    }
+
+    tr td:last-child {
+        width: 1rem;
+    }
+
+    #resumen {
+        height: 9%;
+    }
+
+    .box select {
+        padding: 0;
+    }
+
+    .mouse {
+        top: 92%;
+    }
+}
+
+/* Laptop Gonzales */
+@media only screen and (max-width: 1440px) {
+    .dish-item {
+        width: 35%;
+    }
+
+    .title {
+        height: 8%;
+    }
+
+    #cart-box {
+        height: calc(82% - 40px);
+    }
+
+    #estados {
+        width: 65%;
+    }
+
+    #cancelar {
+        width: 30%;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    h4 {
+        font-size: 0.9rem;
+    }
+
+    #cart-placeholder {
+        font-size: 2rem;
+    }
+
+    .mouse {
+        left: 12%;
+    }
+
+    table {
+        line-height: 2;
+    }
+
+    .cartlist {
+        width: 95%;
+    }
+
+    .box select {
+        padding: 0;
+    }
+}
+
+@media only screen and (min-width: 1281px) and (max-width:1440px) {
+    table {
+        font-size: 0.85rem;
+    }
+
+    td i {
+        margin: 0 0.2em;
+    }
+}
+
+/* HD */
+@media only screen and (min-width: 1920px) {
+    .dish-item {
+        width: 25%;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    #cart-placeholder {
+        font-size: 2.5rem;
+    }
+
+    td i {
+        margin: 0 0.6rem;
+    }
+
+    .box select option {
+        padding: 0 20px;
+    }
+
+    .box::before {
+        content: "\f13a";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        position: absolute;
+        right: 12%;
+        text-align: center;
+        font-size: 1.4em;
+        line-height: 45px;
+        color: rgba(83, 83, 83, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+    }
+}
+
+/* 2K en adelante */
+@media only screen and (min-width: 2560px) {
+    .dish-item {
+        width: 20%;
+    }
+
+    #cart-placeholder {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    h4 {
+        font-size: 1rem;
+    }
+
+    td i {
+        margin: 0 0.9rem;
+    }
 }
