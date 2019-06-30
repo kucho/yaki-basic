@@ -22,18 +22,16 @@ function orden_reserva(id_full) {
 	let cantidad = cliente.getAttribute("cantidad")
 
 	/* Abrimos la página de orden */
-	let opened = window.open("./orden.html")
+	let opened = window.open("./orden.html", "_blank")
 
-	opened.addEventListener('load', (function () {
+	opened.addEventListener("load", function () {
 		opened.document.getElementById("info-mesa").innerText = mesa
 		opened.document.getElementById("info-reserva").innerText = codigo
 		opened.document.getElementById("info-cliente").innerText = nombre
 		opened.document.getElementById("info-cantidad").innerText = cantidad
-	}), true)
+	}, true)
 
 }
-
-
 
 
 /**
@@ -281,30 +279,24 @@ function seleccionar_mesa(id_mesa, e) {
 	/* Si no se mantuvo presionado Shift, selecciona solo uno */
 	let marcados = document.getElementsByClassName("seleccionado")
 
-	let evt = e || window.event
-	if (evt.shiftKey) {
-		alert("Presionaste shift")
-	} else {
-		if (marcados.length > 0) {
-			/* Deseleccionamos todos las mesas, eliminado su respectiva clase */
-			for (let i = 0; i < marcados.length; i++) {
-				marcados[i].setAttribute("class", "")
-			}
-
-			/* Eliminamos el texto guía una vez que cumple con su propósito */
-			var agenda_placeholder = document.getElementById("agenda-placeholder")
-			var info_placeholder = document.getElementById("info-mesa-placeholder")
-
-			/* Si el elemento ya fue eliminado, no hacemos nada */
-			if (agenda_placeholder != null || agenda_placeholder != undefined) {
-				agenda_placeholder.parentNode.removeChild(agenda_placeholder)
-			}
-
-			if (info_placeholder != null || info_placeholder != undefined) {
-				info_placeholder.parentNode.removeChild(info_placeholder)
-			}
-		}
+	/* Deseleccionamos todos las mesas, eliminado su respectiva clase */
+	for (let i = 0; i < marcados.length; i++) {
+		marcados[i].setAttribute("class", "")
 	}
+
+	/* Eliminamos el texto guía una vez que cumple con su propósito */
+	var agenda_placeholder = document.getElementById("agenda-placeholder")
+	var info_placeholder = document.getElementById("info-mesa-placeholder")
+
+	/* Si el elemento ya fue eliminado, no hacemos nada */
+	if (agenda_placeholder != null || agenda_placeholder != undefined) {
+		agenda_placeholder.parentNode.removeChild(agenda_placeholder)
+	}
+
+	if (info_placeholder != null || info_placeholder != undefined) {
+		info_placeholder.parentNode.removeChild(info_placeholder)
+	}
+
 	/* Añadimos el estilo seleccionado a la mesa que hicimos click */
 	let objetivo = document.getElementById("mesa-" + id_mesa)
 	objetivo.setAttribute("class", "seleccionado")

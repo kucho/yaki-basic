@@ -1,153 +1,149 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Sistema de Gestión de Reservas</title>
-		<meta name="description" content="Manejo de reservas">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="./css/style.css">
-		<link rel="stylesheet" href="./css/reserva.css">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-			integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-	</head>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Sistema de Gestión de Reservas</title>
+	<meta name="description" content="Manejo de reservas">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/reserva.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
 
-	<body>
+<body>
 
-		<header class="header sticky sticky--top js-header">
-			<div class="grid">
-				<div class="header__logo">
-					<a href="./reserva.html">
-						<img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
-					</a>
-				</div>
-				<nav class="navigation">
-					<ul class="navigation__list navigation__list--inline">
-						<li class="navigation__item"><a href="./reserva.html" class="is-active">Reservas</a></li>
-						<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
-						<li class="navigation__item"><a href="#">Soporte</a></li>
-					</ul>
-				</nav>
+	<header class="header sticky sticky--top js-header">
+		<div class="grid">
+			<div class="header__logo">
+				<a href="./reserva.html">
+					<img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
+				</a>
 			</div>
-		</header>
+			<nav class="navigation">
+				<ul class="navigation__list navigation__list--inline">
+					<li class="navigation__item"><a href="./reserva.html" class="is-active">Reservas</a></li>
+					<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
+					<li class="navigation__item"><a href="#">Soporte</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 
-		<div class="container flex-center">
-			<div id="agenda" class="cont-izq">
-				<div class="agenda-detalle">
-					<h1>Detalle de reservas</h1>
-					<h2>Mesa # <span id="titulo-#mesa"></span></h2>
-					<br>
-					<span id="agenda-placeholder">Seleccione una mesa para mostrar el detalle</span>
-				</div>
+	<div class="container flex-center">
+		<div id="agenda" class="cont-izq">
+			<div class="agenda-detalle">
+				<h1>Detalle de reservas</h1>
+				<h2>Mesa # <span id="titulo-#mesa"></span></h2>
+				<br>
+				<span id="agenda-placeholder">Seleccione una mesa para mostrar el detalle</span>
 			</div>
-			<div id="principal" class="cont-der">
-				<div class="cont-der-arriba row">
-					<div class="salon-titulo row">
-						<h1>Salón principal</h1>
-					</div>
-					<div id="mesas" class="row flex-center"></div>
+		</div>
+		<div id="principal" class="cont-der">
+			<div class="cont-der-arriba row">
+				<div class="salon-titulo row">
+					<h1>Salón principal</h1>
 				</div>
-				<div id="botones-mesa" class="cont-der-medio row">
-					<p style="text-align: center;">
-						<span><b>Acciones (mesas):</b></span><br>
-						<i class="fa fa-plus-circle fa-2x green" title="Crear mesa" onClick="agregar_mesa()"></i>
-						<i class="fa fa-minus-circle fa-2x red" title="Eliminar mesa" onClick="quitar_mesa()"></i>
-						<i class="fab fa-gg-circle fa-2x blue" title="Combinar mesas" onClick="combinar_mesas()"></i>
-
-					</p>
-				</div>
-				<div id="info-extra" class="cont-der-abajo row">
-					<div id="agregar" class="cont-der-detalle-izq column">
-						<div id="detalles-box" class="box">
-							<div class="box-header">
-								<h3 class="box-title">Información de la reserva</h3>
-							</div>
-							<div id="reserva-info-box" class="box-body color-inactivo">
-								<form>
-									<div class="row">
-										<div class="labels column">
-											<label for="codigo">Código</label>
-										</div>
-										<div class="inputs column">
-											<input type="text" name="codigo" disabled />
-										</div>
+				<div id="mesas" class="row flex-center"></div>
+			</div>
+			<div id="botones-mesa" class="cont-der-medio row">
+				<p style="text-align: center;">
+					<span><b>Acciones (mesas):</b></span><br>
+					<i class="fa fa-plus-circle fa-2x green" title="Crear mesa" onClick="agregar_mesa()"></i>
+					<i class="fa fa-minus-circle fa-2x red" title="Eliminar mesa" onClick="quitar_mesa()"></i>
+				</p>
+			</div>
+			<div id="info-extra" class="cont-der-abajo row">
+				<div id="agregar" class="cont-der-detalle-izq column">
+					<div id="detalles-box" class="box">
+						<div class="box-header">
+							<h3 class="box-title">Información de la reserva</h3>
+						</div>
+						<div id="reserva-info-box" class="box-body color-inactivo">
+							<form>
+								<div class="row">
+									<div class="labels column">
+										<label for="codigo">Código</label>
 									</div>
-
-									<div class="row">
-										<div class="labels column">
-											<label for="cliente">Cliente</label>
-										</div>
-										<div class="inputs column">
-											<input type="text" name="nombre" disabled />
-										</div>
+									<div class="inputs column">
+										<input type="text" name="codigo" disabled />
 									</div>
+								</div>
 
-									<div class="row">
-										<div class="labels column">
-											<label for="cliente">Celular</label>
-										</div>
-										<div class="inputs column">
-											<input type="text" name="celular" disabled />
-										</div>
+								<div class="row">
+									<div class="labels column">
+										<label for="cliente">Cliente</label>
 									</div>
-
-									<div class="row">
-										<div class="labels column">
-											<label for="mesa-para">Cantidad</label>
-										</div>
-										<div class="inputs column">
-											<select name="cantidad" disabled>
-												<option value="" disabled selected hidden>
-													Selecciona...
-												</option>
-												<option value="1">Mesa para 1</option>
-												<option value="2">Mesa para 2</option>
-												<option value="3">Mesa para 3</option>
-												<option value="4">Mesa para 4</option>
-												<option value="5">Mesa para 5</option>
-												<option value="6">Mesa para 6</option>
-											</select>
-										</div>
+									<div class="inputs column">
+										<input type="text" name="nombre" disabled />
 									</div>
-									<div class="btn-reserva row">
-										<div id="btn-detalle-reserva">
-											<button type="button" class="green"
-												onClick="limpiar_form()">Limpiar</button>
-											<button type="button" class="red"
-												onClick="guardar_reserva()">Guardar</button>
-										</div>
+								</div>
+
+								<div class="row">
+									<div class="labels column">
+										<label for="cliente">Celular</label>
 									</div>
+									<div class="inputs column">
+										<input type="text" name="celular" disabled />
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="labels column">
+										<label for="mesa-para">Cantidad</label>
+									</div>
+									<div class="inputs column">
+										<select name="cantidad" disabled>
+											<option value="" disabled selected hidden>
+												Selecciona...
+											</option>
+											<option value="1">Mesa para 1</option>
+											<option value="2">Mesa para 2</option>
+											<option value="3">Mesa para 3</option>
+											<option value="4">Mesa para 4</option>
+											<option value="5">Mesa para 5</option>
+											<option value="6">Mesa para 6</option>
+										</select>
+									</div>
+								</div>
+								<div class="btn-reserva row">
+									<div id="btn-detalle-reserva">
+										<button type="button" class="green" onClick="limpiar_form()">Limpiar</button>
+										<button type="button" class="red" onClick="guardar_reserva()">Guardar</button>
+									</div>
+								</div>
 
 
-								</form>
-							</div>
+							</form>
 						</div>
 					</div>
-					<div id="detalles" class="cont-der-detalle-der column">
-						<div class="box">
-							<div class="box-header">
-								<h3 class="box-title">Información de la mesa</h3>
-							</div>
-							<div class="box-body">
-								<p>
-									<span id="info-mesa-placeholder">Seleccione una mesa para mostrar los
-										detalles.</span>
-									<ul id="data-info-mesa" style="display:none;">
-										<li>Número de mesa: <span id="n-mesa"></span></li>
-										<li>Capacidad: <span id="capacidad"></span>
-										</li>
-									</ul>
-								</p>
-							</div>
+				</div>
+				<div id="detalles" class="cont-der-detalle-der column">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="box-title">Información de la mesa</h3>
+						</div>
+						<div class="box-body">
+							<p>
+								<span id="info-mesa-placeholder">Seleccione una mesa para mostrar los
+									detalles.</span>
+								<ul id="data-info-mesa" style="display:none;">
+									<li>Número de mesa: <span id="n-mesa"></span></li>
+									<li>Capacidad: <span id="capacidad"></span>
+									</li>
+								</ul>
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<script src="./js/header.js" async defer></script>
-		<script src="./js/reserva.js"></script>
+	</div>
+	<script src="./js/header.js" async defer></script>
+	<script src="./js/reserva.js"></script>
 
-	</body>
+</body>
 
 </html>
