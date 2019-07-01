@@ -149,18 +149,6 @@ function quitar_mesa () {
 }
 
 /**
- *Combina dos o más mesas para atender a más personas
- */
-function combinar_mesas () {
-  const selec = document.getElementsByClassName('seleccionado')
-
-  if (selec.length > 2) {
-    alert('Debe seleccionar al menos dos mesas')
-  } else {
-  }
-}
-
-/**
  *Una agenda contiene el detalle de todas las horas de una mesa
  */
 function crear_agenda () {
