@@ -2,182 +2,182 @@
 <html lang="es">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Order System</title>
-	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet" href="./css/orden.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-		integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Order System</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/orden.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 
 <body>
-	<header class="header sticky sticky--top js-header">
-		<div class="grid">
-			<div class="header__logo">
-				<a href="./reserva.html">
-					<img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
-				</a>
-			</div>
-			<nav class="navigation">
-				<ul class="navigation__list navigation__list--inline">
-					<li class="navigation__item"><a href="./reserva.html">Reservas</a></li>
-					<li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
-					<li class="navigation__item"><a href="#">Soporte</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+    <header class="header sticky sticky--top js-header">
+        <div class="grid">
+            <div class="header__logo">
+                <a href="./reserva.html">
+                    <img src="./img/logo.jpg" class="main-logo" alt="Yakitori Logo" />
+                </a>
+            </div>
+            <nav class="navigation">
+                <ul class="navigation__list navigation__list--inline">
+                    <li class="navigation__item"><a href="./reserva.html">Reservas</a></li>
+                    <li class="navigation__item"><a href="./grupo.html">Grupo</a></li>
+                    <li class="navigation__item"><a href="#">Soporte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-	<div id="app" class="container row">
-		<div id="info" class="row upper-info">
-			<ul>
-				<li>Mesa: #<span id="info-mesa"></span></li>
-				<li>Cód. Reserva: <span id="info-reserva"></span></li>
-				<li>Cliente: <span id="info-cliente"></span></li>
-				<li>Cantidad: <span id="info-cantidad"></span></li>
-			</ul>
-		</div>
-		<div id="main" class="row">
-			<div id="categories" class="cont-izq">
-				<div class="title row">
-					<h3>Paso 1. Selecciona la categoría</h3>
-				</div>
-				<div class="row">
+    <div id="app" class="container row">
+        <div id="info" class="row upper-info">
+            <ul>
+                <li>Mesa: #&nbsp<span id="info-mesa"></span></li>
+                <li>Cód. Reserva:&nbsp<span id="info-reserva"></span></li>
+                <li>Cliente:&nbsp<span id="info-cliente"></span></li>
+                <li>Cantidad:&nbsp<span id="info-cantidad"></span></li>
+            </ul>
+        </div>
+        <div id="main" class="row">
+            <div id="categories" class="cont-izq">
+                <div class="title row">
+                    <h3>Paso 1. Selecciona la categoría</h3>
+                </div>
+                <div class="row">
 
-					<div class="mouse">
-						<span></span>
-					</div>
-					<!-- Categorías creadas dinámicamente van acá -->
-					<div id="cat-list" class="cat-list column"></div>
-				</div>
-			</div>
-			<div id="dishes" class="cont-cen">
-				<div class="title row">
-					<h3>Paso 2. Selecciona los platos</h3>
-				</div>
-				<!-- Platos creados dinámicamente van acá-->
-				<div id="dish-list" class="dish-list row"></div>
-			</div>
+                    <div class="mouse">
+                        <span></span>
+                    </div>
+                    <!-- Categorías creadas dinámicamente van acá -->
+                    <div id="cat-list" class="cat-list column"></div>
+                </div>
+            </div>
+            <div id="dishes" class="cont-cen">
+                <div class="title row">
+                    <h3>Paso 2. Selecciona los platos</h3>
+                </div>
+                <!-- Platos creados dinámicamente van acá-->
+                <div id="dish-list" class="dish-list row"></div>
+            </div>
 
-			<div id="cart" class="cont-der">
-				<div class="title row">
-					<h3>Paso 3. Gestiona los pedidos</h3>
-				</div>
-				<div id="cart-box" class="row" style="align-content: center;">
-					<div id="cartlist" class="row">
-						<span id="cart-placeholder">Seleccione un plato para comenzar</span>
-						<table id="products" style="display:none;">
-							<thead>
-								<tr>
-									<td style="width:10%;">Estado</td>
-									<td>Producto</td>
-									<td style="width:20%;">Cantidad</td>
-									<td style="width:10%;">Precio</td>
-									<td>Total</td>
-								</tr>
-							</thead>
-							<tbody id="productList">
-								<!-- Nuevos productos se agregan o quitan dinámicamente -->
-							</tbody>
-						</table>
+            <div id="cart" class="cont-der">
+                <div class="title row">
+                    <h3>Paso 3. Gestiona los pedidos</h3>
+                </div>
+                <div id="cart-box" class="row" style="align-content: center;">
+                    <div id="cartlist" class="row">
+                        <span id="cart-placeholder">Seleccione un plato para comenzar</span>
+                        <table id="products" style="display:none;">
+                            <thead>
+                                <tr>
+                                    <td style="width:10%;">Estado</td>
+                                    <td>Producto</td>
+                                    <td style="width:20%;">Cantidad</td>
+                                    <td style="width:10%;">Precio</td>
+                                    <td>Total</td>
+                                </tr>
+                            </thead>
+                            <tbody id="productList">
+                                <!-- Nuevos productos se agregan o quitan dinámicamente -->
+                            </tbody>
+                        </table>
 
-						<table id="totals" style="display:none;">
-							<tr>
-								<td style="border:0; text-align:right;">SubTotal</td>
-								<td id="subtotal" style="border-top: 0;"></td>
-							</tr>
+                        <table id="totals" style="display:none;">
+                            <tr>
+                                <td style="border:0; text-align:right;">SubTotal</td>
+                                <td id="subtotal" style="border-top: 0;"></td>
+                            </tr>
 
-							<tr>
-								<td style="border:0; text-align:right;">IGV (18%)</td>
-								<td id="igv"></td>
-							</tr>
+                            <tr>
+                                <td style="border:0; text-align:right;">IGV (18%)</td>
+                                <td id="igv"></td>
+                            </tr>
 
-							<tr>
-								<td style="border:0; text-align:right;">Servicio (10%)</td>
-								<td id="servicio"></td>
-							</tr>
+                            <tr>
+                                <td style="border:0; text-align:right;">Servicio (10%)</td>
+                                <td id="servicio"></td>
+                            </tr>
 
-							<tr>
-								<td style="border:0; text-align:right;">Total</td>
-								<td id="total"></td>
-							</tr>
-						</table>
-					</div>
-				</div>
-				<div id="resumen" class="row" style="display:none;">
-					<div id="estados" class="column">
-						<div class="row">
-							<div id="espera" class="estado column">
-								<div class="titulo row"><img src="img/waiting.svg" /><span>En espera</span></div>
-								<div class="row"><span id="n-espera">0</span></div>
-							</div>
-							<div id="preparando" class="estado column">
-								<div class="titulo row"><img src="img/cooking.svg" /><span>Preparando</span></div>
-								<div class="row"><span id="n-preparando">0</span></div>
-							</div>
-							<div id="servido" class="estado column">
-								<div class="titulo row"><img src="img/ready.svg" /><span>Servido</span></div>
-								<div class="row"><span id="n-servido">0</span></div>
-							</div>
-						</div>
-					</div>
-					<div id="cancelar" class="column">
-						<div id="btn-pagar-box" onClick="Facturar()">
-							<div id="btn-pagar">
-								<i class="far fa-money-bill-alt"></i><span style="cursor: pointer;">Cobrar</span>
-							</div>
-						</div>
-					</div>
-				</div>
+                            <tr>
+                                <td style="border:0; text-align:right;">Total</td>
+                                <td id="total"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="resumen" class="row" style="display:none;">
+                    <div id="estados" class="column">
+                        <div class="row">
+                            <div id="espera" class="estado column">
+                                <div class="titulo row"><img src="img/waiting.svg" /><span>En espera</span></div>
+                                <div class="row"><span id="n-espera">0</span></div>
+                            </div>
+                            <div id="preparando" class="estado column">
+                                <div class="titulo row"><img src="img/cooking.svg" /><span>Preparando</span></div>
+                                <div class="row"><span id="n-preparando">0</span></div>
+                            </div>
+                            <div id="servido" class="estado column">
+                                <div class="titulo row"><img src="img/ready.svg" /><span>Servido</span></div>
+                                <div class="row"><span id="n-servido">0</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="cancelar" class="column">
+                        <div id="btn-pagar-box" onClick="Facturar()">
+                            <div id="btn-pagar">
+                                <i class="far fa-money-bill-alt"></i><span style="cursor: pointer;">Cobrar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-				<!-- Pop_up de facturación -->
-				<div id="static" class="modal">
-					<div id="cerrar-modal"></div>
-					<div class="modal-content">
-						<div class="modal-heading">
-							<h2><i class="fas fa-file-invoice"></i> Factura Electrónica</h2>
-							<div class="close"><i class="fas fa-times" onClick="CerrarModal()"></i></div>
-						</div>
-						<div id="modal-body" class="modal-body">
-							<p style="margin-top:0;">Ingresa los datos del comprobante</p>
+                <!-- Pop_up de facturación -->
+                <div id="static" class="modal">
+                    <div id="cerrar-modal"></div>
+                    <div class="modal-content">
+                        <div class="modal-heading">
+                            <h2><i class="fas fa-file-invoice"></i> Factura Electrónica</h2>
+                            <div class="close"><i class="fas fa-times" onClick="CerrarModal()"></i></div>
+                        </div>
+                        <div id="modal-body" class="modal-body">
+                            <p style="margin-top:0;">Ingresa los datos del comprobante</p>
 
-							<div class="tipo-comp row">
-								<span style="display:block;margin-right:1.5em;">Tipo de comprobante</span>
-								<label class="column inline radio-wrapper">
-									<input name="tipo-comp" type="radio" value="boleta" checked>
-									<span>Boleta</span>
-								</label>
-								<label class="column inline radio-wrapper">
-									<input name="tipo-comp" type="radio" value="factura">
-									<span>Factura</span>
-								</label>
-							</div>
+                            <div class="tipo-comp row">
+                                <span style="display:block;margin-right:1.5em;">Tipo de comprobante</span>
+                                <label class="column inline radio-wrapper">
+                                    <input name="tipo-comp" type="radio" value="boleta" checked>
+                                    <span>Boleta</span>
+                                </label>
+                                <label class="column inline radio-wrapper">
+                                    <input name="tipo-comp" type="radio" value="factura">
+                                    <span>Factura</span>
+                                </label>
+                            </div>
 
-							<label for="text">Nombre o Razón Social</label>
-							<input type="text" id="modal-usuario" required x-webkit-speech>
+                            <label for="text">Nombre o Razón Social</label>
+                            <input type="text" id="modal-usuario" required x-webkit-speech>
 
-							<label for="number">DNI o RUC</label>
-							<input type="number" id="modal-numero" required x-webkit-speech>
+                            <label for="number">DNI o RUC</label>
+                            <input type="number" id="modal-numero" required x-webkit-speech>
 
-							<label for="email">Correo electrónico</label>
-							<input type="email" id="modal-email" required x-webkit-speech>
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="modal-email" required x-webkit-speech>
 
-							<p>Monto total: <span id="factura-monto">0.00</span></p>
-						</div>
-						<div id="modalFooter" class="modal-footer">
-							<button type="button" class="btn btn-info close" onClick="GenerarFactura()">Generar</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            <p>Monto total: <span id="factura-monto">0.00</span></p>
+                        </div>
+                        <div id="modalFooter" class="modal-footer">
+                            <button type="button" class="btn btn-info close" onClick="GenerarFactura()">Generar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<script src="./js/header.js" async defer></script>
-	<script src="./js/orden.js" async defer></script>
+    <script src="./js/header.js" async defer></script>
+    <script src="./js/orden.js" async defer></script>
 </body>
 
 </html>
